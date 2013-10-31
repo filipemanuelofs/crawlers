@@ -1,8 +1,18 @@
 # coding: utf-8
 
 """
-This crawler was made to download every pdf file
-from WP website http://www.desconversa.com.br
+Author: 
+Filipe Manuel
+
+Description: 
+This crawler was made to download every pdf file 
+from WordPress website http://www.desconversa.com.br 
+for didactic purposes.
+The files will be downloaded in current directory which
+"desconversa.py" is in.
+
+Version:
+0.1 (and need a lot of adjustments)
 """
 
 import os
@@ -29,6 +39,9 @@ for subject_ in _SUBJECT:
     for month_ in _MONTH:
         _URL.append('http://www.desconversa.com.br/' + subject_ + _CONTEXT + month_)
 
+# Limiting URL_ to one link using slice [2:3].
+# Catch every url took too much time
+# and this is for didactic purposes.
 for url_ in _URL[2:3]:
     r = requests.get(url_)
     soup = bs(r.text)
